@@ -11,7 +11,7 @@
 #include "calc.h"
 
 #define PHYSMEM_KERNEL_BASE_OFFSET 0x777F81000000ULL
-#define LEAK_OFFSET 0x83F040
+#define LEAK_OFFSET 0xA53060
 #define SPRAY_SIZE 50
 
 struct msgbuf {

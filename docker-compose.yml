@@ -1,0 +1,15 @@
+services:
+  task:
+    pull_policy: always
+    build: .
+    ports:
+      - 9322:9322
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 256M
+          pids: 1000
+        reservations:
+          cpus: "1"
+          memory: 128M

